@@ -8,6 +8,7 @@ import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -43,5 +44,18 @@ public class APISteps {
             int actualUsers = jsonResponse.size();
 
             assertEquals(expectedUsers, actualUsers);
+    }
+
+    @Then("^I validate there is a value: (.+) in the response at (.+) endpoint$")
+    public void validateValue(String expectedValue, String endpoint) {
+        response = request
+            .when()
+            .get(endpoint);
+
+            List<String> jsonResponse = response.jsonPath().getList("username");
+            //Here we know where is the value we are looking for
+            // String actualValue = jsonResponse.get(0);
+            // assertEquals(expectedValue, actualValue);
+            assertTrue(jsonResponse.contains(expectedValue), "El valor "+ expectedValue +" no esta en la lista");
     }
 }
