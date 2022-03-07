@@ -13,3 +13,8 @@ Feature: Ejemplo de Request
     Scenario: Validar que un elemento esta en la respuesta.
     Given I send a GET request to the https://jsonplaceholder.typicode.com URI
     Then I validate there is a value: Bret in the response at /users endpoint
+
+    @API
+    Scenario: Validar un valor anidado dentro de la respuesta.
+    Given I send a GET request to the https://jsonplaceholder.typicode.com URI
+    Then I can validate the nested value: Kattie Turnpike in the response at /users endpoint

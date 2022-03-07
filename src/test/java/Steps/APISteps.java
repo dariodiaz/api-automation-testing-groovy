@@ -58,4 +58,17 @@ public class APISteps {
             // assertEquals(expectedValue, actualValue);
             assertTrue(jsonResponse.contains(expectedValue), "El valor "+ expectedValue +" no esta en la lista");
     }
+
+    @Then("^I can validate the nested value: (.+) in the response at (.+) endpoint$")
+    public void validateNestedValue(String expectedValue, String endpoint) {
+        response = request
+            .when()
+            .get(endpoint);
+
+            String jsonResponse = response.jsonPath().getString("address.street");
+            //Here we know where is the value we are looking for
+            // String actualValue = jsonResponse.get(0);
+            // assertEquals(expectedValue, actualValue);
+            assertTrue(jsonResponse.contains(expectedValue), "La calle "+ expectedValue +" no esta dentro de la lista como valor anidado");
+    }
 }
