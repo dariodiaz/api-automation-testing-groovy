@@ -10,6 +10,8 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 
+import java.io.File;
+
 public class BraveNewCoinAPISteps {
 
     private static RequestSpecification request;
@@ -27,16 +29,14 @@ public class BraveNewCoinAPISteps {
     }
 
     @When("^I send a POST request with a valid body to the (.+) endpoint$")
-    public void sendPOSTRequest(String endpoint) {
-        String requestBody = "{\n" +
-                "  \"audience\": \"https://api.bravenewcoin.com\",\n" +
-                "  \"client_id\":  \"oCdQoZoI96ERE9HY3sQ7JmbACfBf55RY\",\n" +
-                "  \"grant_type\": \"client_credentials\"\n" + "}";
+    public void sendPOSTRequest(String endpoint, String fileName) {
+        File requestBody = new File("src/test/resources/payloads/" + fileName + ".json");
         response = request.when().body(requestBody).post(endpoint).prettyPeek();
     }
 
-    @Then("^I can validate I receive a validate token in the response$")
+    @Then("^I can validate I receive a valid token in the response$")
     public void validateToken() {
         json = response.then().statusCode(200);
     }
+
 }
