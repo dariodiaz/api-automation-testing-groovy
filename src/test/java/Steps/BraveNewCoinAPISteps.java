@@ -28,9 +28,9 @@ public class BraveNewCoinAPISteps {
                 .log().all();
     }
 
-    @When("^I send a POST request with a valid body to the (.+) endpoint$")
-    public void sendPOSTRequest(String endpoint, String fileName) {
-        File requestBody = new File("src/test/resources/payloads/" + fileName + ".json");
+    @When("^I send a POST request with a valid (.+) body to the (.+) endpoint$")
+    public void sendPOSTRequest(String payload, String endpoint) {
+        File requestBody = new File("src/test/resources/payloads/" + payload + ".json");
         response = request.when().body(requestBody).post(endpoint).prettyPeek();
     }
 
