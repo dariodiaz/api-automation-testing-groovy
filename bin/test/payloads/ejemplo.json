@@ -1,22 +1,32 @@
 [
-    {
-        "empleado": {
-            "nombre": "Juan",
-            "apellido": "Perez",
-            "edad": 25,
-            "dni": "12345678",
-            "cargo": "Programador",
-            "sueldo": 1000
-        }
-    },
-    {
-        "empleado": {
-            "nombre": "Pepe",
-            "apellido": "Perez",
-            "edad": 20,
-            "dni": "12345678",
-            "cargo": "Programador",
-            "sueldo": 1200
-        }
+  {
+    "empleado": {
+      "nombre": "Juan",
+      "apellido": "Perez",
+      "edad": 25,
+      "dni": "12345678",
+      "cargo": "Programador",
+      "sueldo": 1000
     }
+  },
+  {
+    "empleado": {
+      "nombre": "Pepe",
+      "apellido": "Perez",
+      "edad": 20,
+      "dni": "12345678",
+      "cargo": "Programador",
+      "sueldo": 1200
+    }
+  },
+  {
+    "empleado": {
+      "nombre": "Juan",
+      "apellido": "Lopez",
+      "edad": 32,
+      "dni": "12345678",
+      "cargo": "Cocinero",
+      "sueldo": 2500
+    }
+  }
 ]
