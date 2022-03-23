@@ -6,7 +6,7 @@ Feature: BraveNewCoin API scenarios: POST GetToken
             Given I have a valid API Key for the https://bravenewcoin.p.rapidapi.com/ URI
             When I send a POST request with a valid bravenewcoin body to the oauth/token endpoint
             Then I can validate I receive a valid token in the response
-
+        @BraveNewCoin
         Scenario: As a user, when I use an invalid API Key, I get an HTTP Code Status 403
             Given I have an invalid API Key for the https://bravenewcoin.p.rapidapi.com URI
             When I send a POST request with a valid body to the /oauth/token endpoint
